@@ -1,0 +1,15 @@
+.idea
+.project
+.classpath
+.settings
+.vagrant
+.gradle
+build
+oracle-installer/*.zip
+
+*.iml
+*.ipr
+*.iws
+
+*.class
+*.jar
