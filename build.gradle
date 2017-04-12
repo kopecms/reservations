@@ -11,6 +11,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+//apply plugin: 'war'
 
 jar {
     baseName = 'reservation'
@@ -20,6 +21,8 @@ jar {
 repositories {
     mavenLocal()
     mavenCentral()
+   // jcenter()
+   // maven { url "http://repo.spring.io/libs-snapshot" }
 }
 
 sourceCompatibility = 1.8
@@ -29,10 +32,20 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-jdbc")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("com.oracle:ojdbc6:11.2.0.4")
-
+ //   providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     testCompile("junit:junit")
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
+
+jar {
+    baseName = 'hello'
+    version =  '0.0.1'
+}
+
+
+//war {
+  //  baseName = 'hello'
+//}
