@@ -13,12 +13,13 @@ Oracle JDBC Driver shenanigans
     In the above command make sure to adjust the file, artifactId, and version to match the driver you downloaded.
 	
 Angular2
+
 	npm install -g @angular/cli
 	ng new projectFolder creates a new application
 	ng init from projectFolder if it is an existing application
 	npm start 
 	localhost:4200
-	
 	deployment :ng b -prod 
 	http://tattoocoder.com/angular-cli-using-the-environment-option/
+	
 moze byc koniecznosc wylaczenia firewalla 
