@@ -13,10 +13,12 @@ Oracle JDBC Driver shenanigans
     In the above command make sure to adjust the file, artifactId, and version to match the driver you downloaded.
 	
 Angular2
-
-	WINDOWS ONLY run npm install -g webpack webpack-dev-server typescript to install global dependencies
-	run npm install to install dependencies
-	run npm start to fire up dev server
-	open browser to http://localhost:4200
+	npm install -g @angular/cli
+	ng new projectFolder creates a new application
+	ng init from projectFolder if it is an existing application
+	npm start 
+	localhost:4200
 	
+	deployment :ng b -prod 
+	http://tattoocoder.com/angular-cli-using-the-environment-option/
 moze byc koniecznosc wylaczenia firewalla 
