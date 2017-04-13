@@ -17,6 +17,6 @@ Angular2
 	WINDOWS ONLY run npm install -g webpack webpack-dev-server typescript to install global dependencies
 	run npm install to install dependencies
 	run npm start to fire up dev server
-	open browser to http://localhost:3000
+	open browser to http://localhost:4200
 	
 moze byc koniecznosc wylaczenia firewalla 
