@@ -1,5 +1,6 @@
 package app.repositories.impl;
 
+import app.models.Urzytkownik;
 import app.models.User;
 import app.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,12 +28,12 @@ public class UserJdbcRepository implements UserRepository{
     }
 
     @Override
-    public List<User> getAll() {
+    public List<Urzytkownik> getAll() {
         String sql = "SELECT * FROM users";
 
         return jdbcTemplate.query(sql,
                 (resultSet, rowNum) ->
-                    new User(
+                    new Urzytkownik(
                             resultSet.getLong("id"),
                             resultSet.getString("username")
                     ));

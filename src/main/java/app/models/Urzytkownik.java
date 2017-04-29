@@ -1,20 +1,23 @@
 package app.models;
 
-
 import java.io.Serializable;
 
-public class User implements Serializable {
+/**
+ * Created by kopec on 29.04.2017.
+ */
+
+public class Urzytkownik implements Serializable {
 
 
     private Long id;
 
     private String username;
 
-    public User() {
+    public Urzytkownik() {
 
     }
 
-    public User(Long id, String username) {
+    public Urzytkownik(Long id, String username) {
         this.id = id;
         this.username = username;
     }
