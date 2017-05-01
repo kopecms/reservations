@@ -2,7 +2,7 @@ package app.controllers;
 
 import java.util.List;
 
-import app.models.Urzytkownik;
+import app.models.Uzytkownik;
 import app.repositories.UserRepository;
 import app.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,14 @@ public class UserController {
     private UserRepository userRepository;
 
     @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value="/add", method=RequestMethod.GET)
+    public void createUser() {
+        userRepository.create(new User(69l, "Sylvester Stallone"));
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value="/users", method=RequestMethod.GET)
-    public List<Urzytkownik> getAllUsers() {
+    public List<Uzytkownik> getAllUsers() {
         return userRepository.getAll();
     }
 }
