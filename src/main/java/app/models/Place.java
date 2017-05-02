@@ -11,7 +11,7 @@ public class Place  implements Serializable {
     private int number;
 
     public Place(Long id, int number) {
-        this.id;
+        this.id = id;
         this.number = number;
     }
 

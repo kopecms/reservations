@@ -10,23 +10,28 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
     private UserRepository userRepository;
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(value="/add", method=RequestMethod.GET)
-    public void createUser() {
-        userRepository.create(new User(69l, "Sylvester Stallone"));
+
+    @RequestMapping(value="", method=RequestMethod.GET)
+    public Iterable<User> getAllUsers() {
+        return userRepository.findAll();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(value="/users", method=RequestMethod.GET)
-    public List<Uzytkownik> getAllUsers() {
-        return userRepository.getAll();
+    @RequestMapping(value="/save")
+    public void save(){
+        userRepository.save(new User(new Long(1),"siema"));
     }
+
+    @RequestMapping(value="/costom", method=RequestMethod.GET)
+    public User costam(){
+        return userRepository.CosTam();
+    }
+
 }
