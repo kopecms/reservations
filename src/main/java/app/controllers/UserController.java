@@ -29,9 +29,4 @@ public class UserController {
         userRepository.save(new User(new Long(1),"siema"));
     }
 
-    @RequestMapping(value="/costom", method=RequestMethod.GET)
-    public User costam(){
-        return userRepository.CosTam();
-    }
-
 }
