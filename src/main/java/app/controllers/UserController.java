@@ -1,8 +1,5 @@
 package app.controllers;
 
-import java.util.List;
-
-import app.models.Uzytkownik;
 import app.repositories.UserRepository;
 import app.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
