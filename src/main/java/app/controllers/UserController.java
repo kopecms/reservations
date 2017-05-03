@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.transaction.Transactional;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/users")
@@ -25,6 +28,7 @@ public class UserController {
     }
 
     @RequestMapping(value="/save")
+    @Transactional
     public void save(){
         userRepository.save(new User(new Long(1),"siema"));
     }

@@ -1,7 +1,6 @@
 package app.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,8 +9,10 @@ import java.util.Date;
  * Implemented by abuczak on 30.04.2017.
  */
 @Entity
+@Table(name = "Rezerwacja")
 public class Reservation  implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String status;
     private Date date;

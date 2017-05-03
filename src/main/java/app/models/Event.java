@@ -1,7 +1,6 @@
 package app.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -9,17 +8,36 @@ import java.io.Serializable;
  * Implemented by abuczak on 30.04.2017.
  */
 @Entity
+@Table(name = "Wydarzenie")
 public class Event  implements Serializable {
     @Id
+    @Column(name = "ID_WYDARZENIA")
     private Long id;
+
+    @Column(name = "ID_HARMONOGRAMU")
+    private int timetable;
+
+    @Column(name = "NAZWA")
     private String name;
+    @Column(name = "ORGANIZATOR")
     private String organizer;
+    @Column(name = "OPIS")
     private String description;
 
-    public Event(Long id, String name, String organizer) {
+    public Event(){};
+
+    public Event(Long id, String name, String organizer, int timetable) {
         this.id = id;
         this.name = name;
         this.organizer = organizer;
+        this.timetable = timetable;
+    }
+    public int getTimetable() {
+        return timetable;
+    }
+
+    public void setTimetable(int timetable) {
+        this.timetable = timetable;
     }
 
     public Long getId() {
