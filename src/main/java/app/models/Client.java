@@ -1,15 +1,24 @@
 package app.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
  * Created by kopec on 29.04.2017.
  * Implemented by abuczak on 30.04.2017.
  */
+@Entity
+@Table(name = "Klient")
 public class Client  implements Serializable {
+    @Column(name = "ID_KLIENTA")
     private Long id;
+    @Column(name = "IMIĘ")
     private String firstName;
+    @Column(name = "NAZWISKO")
     private String lastName;
+    @Column(name = "ADRES EMAIL")
     private String email;
 
     public Client(Long id, String firstName, String lastName, String email) {

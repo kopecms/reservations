@@ -1,6 +1,7 @@
 package app.models;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,8 +12,9 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
+    @Column(name = "USER_ID")
     private Long id;
-
+    @Column(name = "USER_NAME")
     private String username;
 
     public User() {

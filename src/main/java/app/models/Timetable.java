@@ -1,5 +1,6 @@
 package app.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,7 +14,9 @@ import java.io.Serializable;
 @Table(name ="Harmonogram")
 public class Timetable  implements Serializable {
     @Id
+    @Column(name = "ID_HARMONOGRAMU")
     private Long id;
+    @Column(name = "TYP")
     private String type;
 
     public Timetable(Long id, String type) {

@@ -13,9 +13,23 @@ import java.util.Date;
 public class Reservation  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID_REZERWACJI")
     private Long id;
+    @Column(name = "STATUS")
     private String status;
+    @Column(name = "DATA")
     private Date date;
+    @ManyToMany
+    @Column(name="KLIENT")
+    private Client client;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     public Reservation(Long id, String status, Date date) {
         this.id = id;
