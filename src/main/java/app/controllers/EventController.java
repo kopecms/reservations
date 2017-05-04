@@ -1,12 +1,10 @@
 package app.controllers;
 
 import app.models.Event;
-import app.models.Timetable;
 import app.repositories.EventRepository;
 import app.repositories.TimetableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
