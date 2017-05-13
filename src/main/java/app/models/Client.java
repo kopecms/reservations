@@ -31,6 +31,10 @@ public class Client  implements Serializable {
         this.email = email;
     }
 
+    public Client getUser() {
+        return Client(this.id, this.firstName, this.lastName, this.email);
+    }
+
     public Long getId() {
         return this.id;
     }

@@ -23,6 +23,8 @@ public class Building  implements Serializable {
     @Column(name = "OPIS")
     private String description;
 
+    public Building(){};
+
     public Building(Long id, String address, String type) {
         this.id = id;
         this.address = address;

@@ -14,6 +14,8 @@ public class Event  implements Serializable {
     @Column(name = "ID_WYDARZENIA")
     private Long id;
 
+    private Building building;
+
     @Column(name = "ID_HARMONOGRAMU")
     private int timetable;
 
