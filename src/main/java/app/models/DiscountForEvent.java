@@ -13,10 +13,10 @@ public class DiscountForEvent {
     public DiscountForEvent() {
     }
 
-    @ManyToMany
+    @Id
     @Column(name = "Wydarzenie")
     private Event event;
-    @ManyToOne
+
     @Column(name = "Zniżka")
     private Discount discount;
 

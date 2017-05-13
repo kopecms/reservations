@@ -16,19 +16,14 @@ public class Ticket  implements Serializable {
     private Long id;
     @Column(name = "CENA")
     private float price;
-    @ManyToOne
     @Column(name = "Rezerwacja")
     private Reservation reservation;
-    @ManyToOne
     @Column(name = "Wydarzenie")
     private Event event;
-    @ManyToOne
     @Column(name = "Sektor")
     private Sector sector;
-    @ManyToOne
     @Column(name = "Miejsce")
     private Place place;
-    @ManyToOne
     @Column(name = "Budynek")
     private Building building;
 

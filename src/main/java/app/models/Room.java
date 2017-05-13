@@ -2,6 +2,7 @@ package app.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -12,6 +13,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Sala")
 public class Room  implements Serializable {
+
+    @Id
     @Column(name = "NUMER")
     private int number;
     @Column(name = "NAZWA")

@@ -2,6 +2,7 @@ package app.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -12,6 +13,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Klient")
 public class Client  implements Serializable {
+
+    @Id
     @Column(name = "ID_KLIENTA")
     private Long id;
     @Column(name = "IMIĘ")
@@ -26,6 +29,10 @@ public class Client  implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public Client getUser() {
+        return Client(this.id, this.firstName, this.lastName, this.email);
     }
 
     public Long getId() {

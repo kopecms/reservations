@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.models.Client;
 import app.repositories.UserRepository;
 import app.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,15 @@ import javax.transaction.Transactional;
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
+    private Client client;
+
+    public void setUser() {
+
+    }
+
+    public Client getUser() {
+
+    }
 
     @Autowired
     private UserRepository userRepository;
