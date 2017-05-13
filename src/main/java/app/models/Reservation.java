@@ -12,29 +12,33 @@ import java.util.Date;
 @Table(name = "Rezerwacja")
 public class Reservation  implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="RESERVATIONS_SEQ", sequenceName="RESERVATIONS_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="RESERVATIONS_SEQ")
     @Column(name = "ID_REZERWACJI")
     private Long id;
     @Column(name = "STATUS")
     private String status;
     @Column(name = "DATA")
     private Date date;
-    @Column(name="KLIENT")
-    private Client client;
 
-    public Client getClient() {
-        return client;
-    }
+    @Column(name="ID_KLIENTA")
+    private Long clientId;
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
 
-    public Reservation(Long id, String status, Date date) {
-        this.id = id;
+    public Reservation(String status, Date date, Long clientId) {
         this.status = status;
         this.date = date;
+        this.clientId = clientId;
     }
+
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
+
 
     public Long getId() {
         return this.id;

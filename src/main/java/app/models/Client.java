@@ -1,9 +1,6 @@
 package app.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -15,24 +12,27 @@ import java.io.Serializable;
 public class Client  implements Serializable {
 
     @Id
+    @SequenceGenerator(name="clients_seq", sequenceName="CLIENTS_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="clients_seq")
     @Column(name = "ID_KLIENTA")
     private Long id;
-    @Column(name = "IMIĘ")
+    @Column(name = "IMIE")
     private String firstName;
     @Column(name = "NAZWISKO")
     private String lastName;
-    @Column(name = "ADRES EMAIL")
+    @Column(name = "ADRES_EMAIL")
     private String email;
 
-    public Client(Long id, String firstName, String lastName, String email) {
-        this.id = id;
+    public Client(){}
+
+    public Client(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
     public Client getUser() {
-        return Client(this.id, this.firstName, this.lastName, this.email);
+        return new Client(this.firstName, this.lastName, this.email);
     }
 
     public Long getId() {

@@ -11,7 +11,7 @@ import java.io.Serializable;
  * Implemented by abuczak on 30.04.2017.
  */
 @Entity
-@Table(name = "Budynek")
+@Table(name = "BUDYNEK")
 public class Building  implements Serializable {
     @Id
     @Column(name = "ID_BUDYNKU")

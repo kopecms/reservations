@@ -12,13 +12,14 @@ import java.util.Date;
 @Entity
 @Table(name = "Data i goidzina")
 public class DateAndHour {
-    @Id
+    
     @Column(name = "DATA ROZPOCZĘCIA")
     private Date date;
     @Column(name = "GODZINA ROZPOCZĘCIA")
     private Date hour;
     @Column(name = "CZAS TRWANIA")
     private int time;
+    @Id
     @Column(name = "ID_HARMONOGRAMU")
     private Timetable timetable;
 

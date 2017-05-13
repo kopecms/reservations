@@ -42,19 +42,16 @@ public class ReservationController{
     @Autowired
     private TimetableRepository timetableRepository;
 
-    @Autowired
-    private DiscountRepository discountRepository;
-
     @RequestMapping(value="", method= RequestMethod.GET)
     public Iterable<Reservation> getAllUsers() {
         return reservationRepository.findAll();
     }
 
     @RequestMapping(value = "/events", method = RequestMethod.GET)
-    public Iterable<eventRepository> getEvents() {
+    public Iterable<Event> getEvents() {
         return eventRepository.findAll();
     }
-
+/*
     @RequestMapping(value = "/new/{event_id}", method = RequestMethod.GET)
     public String bookTicket(Model model, @PathVariable("event_id") Long event_id,
                              @ModelAttribute("reservation") Reservation reservation,
@@ -64,14 +61,8 @@ public class ReservationController{
         Discount discount1 = discountRepository.findOne(discount);
 
         reservation.setClient(getCurrentUser());
-    }
+    }*/
 
-    @RequestMapping(value="/create", method=RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody Reservation input) {
-        this.reservationRepository
-                .save(new Reservation(input.getId(), input.getStatus(), input.getDate()));
-    }
 
     private Client getCurrentUser(){
         userController.setUser();

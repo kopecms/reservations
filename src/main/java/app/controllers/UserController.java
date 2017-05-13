@@ -22,7 +22,7 @@ public class UserController {
     }
 
     public Client getUser() {
-
+        return new Client();
     }
 
     @Autowired
