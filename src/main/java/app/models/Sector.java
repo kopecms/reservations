@@ -20,7 +20,7 @@ public class Sector  implements Serializable {
     @Column(name="SALA")
     private int number;
     @ManyToOne
-    @Column(name = "BUDYNEK")
+    @JoinColumn(name = "BUDYNEK")
     private Building building;
 
     public int getNumber() {

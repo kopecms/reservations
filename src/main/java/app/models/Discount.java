@@ -1,6 +1,9 @@
 package app.models;
 
+import org.springframework.data.annotation.Id;
+
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -9,9 +12,11 @@ import java.io.Serializable;
  * Created by kopec on 29.04.2017.
  * Implemented by abuczak on 30.04.2017.
  */
-@Entity
+@Embeddable
 @Table(name = "Zniżka")
 public class Discount  implements Serializable {
+
+    @Id
     @Column(name = "ID_ZNIŻKI")
     private Long id;
     @Column(name = "WARTOŚĆ")

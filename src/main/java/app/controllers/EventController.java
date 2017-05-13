@@ -24,14 +24,11 @@ public class EventController {
         return eventRepository.findAll();
     }
 
-
-
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Event input) {
         this.eventRepository
                 .save(new Event(input.getId(),input.getName(),input.getOrganizer(),2));
-
     }
 
 }

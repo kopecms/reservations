@@ -19,7 +19,6 @@ public class Reservation  implements Serializable {
     private String status;
     @Column(name = "DATA")
     private Date date;
-    @ManyToMany
     @Column(name="KLIENT")
     private Client client;
 

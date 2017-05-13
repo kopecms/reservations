@@ -2,6 +2,7 @@ package app.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -11,6 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "Data i goidzina")
 public class DateAndHour {
+    @Id
     @Column(name = "DATA ROZPOCZĘCIA")
     private Date date;
     @Column(name = "GODZINA ROZPOCZĘCIA")
