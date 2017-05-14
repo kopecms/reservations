@@ -20,12 +20,16 @@ public class HomeController {
     TestDataGenerator testDataGenerator;
 
     @RequestMapping(value="/generate")
-    @Transactional
+    //@Transactional
     public void genereteData(){
         try {
-            testDataGenerator.generateClients(50);
-            testDataGenerator.generateReservation(50);
-            testDataGenerator.generateTimeTables(40);
+            testDataGenerator.generateClients(20);
+            testDataGenerator.generateReservation(20);
+         //   testDataGenerator.generateBuildings(5);
+            testDataGenerator.generateTimeTables(5);
+
+            testDataGenerator.generateEvents(20);
+            testDataGenerator.generateTickets(100);
         }catch(Exception e){
             System.out.println(e);
         }

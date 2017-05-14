@@ -23,7 +23,7 @@ public class Sector  implements Serializable {
     private Long number;
     @Column(name="NUMER_SALI")
     private int roomNumber;
-
+    public Sector() {}
     public Sector(String type, Long number, int roomNumber) {
         this.roomNumber = roomNumber;
         this.type = type;

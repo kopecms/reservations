@@ -12,14 +12,12 @@ public class DiscountForEvent {
 
 
     @Id
-    @SequenceGenerator(name="BUILDING_SEQ", sequenceName="BUILDING_SEQ")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="BUILDING_SEQ")
     @Column(name = "Wydarzenie")
     private Long event;
 
     @Column(name = "Zniżka")
     private Long discount;
-
+    public DiscountForEvent () {}
     public DiscountForEvent(Long event, Long discount) {
         this.event = event;
         this.discount = discount;

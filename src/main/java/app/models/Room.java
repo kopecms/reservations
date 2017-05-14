@@ -9,12 +9,11 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "Sala")
+@IdClass(RoomPK.class)
 public class Room  implements Serializable {
 
     @Id
-    @SequenceGenerator(name="ROOM_SEQ", sequenceName="ROOM_SEQ")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ROOM_SEQ")
-    @Column(name="ID_BUUDYNKU")
+    @Column(name="ID_BUDYNKU")
     private Long building;
     @Id
     @Column(name = "NUMER")
@@ -26,7 +25,7 @@ public class Room  implements Serializable {
     @Column(name = "TYP")
     private String type;
 
-
+    public Room(){};
     public Room( int number, String type, Long building) {
         this.number = number;
         this.type = type;
@@ -76,4 +75,16 @@ public class Room  implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+}
+class RoomPK implements Serializable {
+    protected Long building;
+    protected int number;
+
+    public RoomPK() {}
+
+    public RoomPK(Long building,int number) {
+        this.building = building;
+        this.number = number;
+    }
+    // equals, hashCode
 }

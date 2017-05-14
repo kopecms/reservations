@@ -2,6 +2,7 @@ package app.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Time;
 
 /**
  * Created by kopec on 29.04.2017.
@@ -17,7 +18,7 @@ public class Timetable  implements Serializable {
     private Long id;
     @Column(name = "TYP")
     private String type;
-
+    public Timetable() {}
     public Timetable(String type) {
         this.type = type;
     }

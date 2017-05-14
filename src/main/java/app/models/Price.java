@@ -14,6 +14,8 @@ public class Price  implements Serializable {
     @Id
     @SequenceGenerator(name="PRICE_SEQ", sequenceName="PRICE_SEQ")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="PRICE_SEQ")
+    @Column(name = "ID_SEKTORA")
+    private Long sectortId;
     @Column(name = "WARTOSC")
     private float value;
     @Column(name = "WALUTA")
@@ -21,16 +23,12 @@ public class Price  implements Serializable {
     @Column(name = "ID_WYDARZENIA")
     private Long eventId;
 
-    @Column(name = "ID_BUDYNKU")
-    private Long buildingtId;
-    @Column(name = "ID_SEKTORA")
-    private Long sectortId;
 
-    public Price(float value, String currency, Long eventId, Long buildingtId, Long sectortId) {
+    public Price() {}
+    public Price(float value, String currency, Long eventId, Long sectortId) {
         this.value = value;
         this.currency = currency;
         this.eventId = eventId;
-        this.buildingtId = buildingtId;
         this.sectortId = sectortId;
     }
 
@@ -40,14 +38,6 @@ public class Price  implements Serializable {
 
     public void setEventId(Long eventId) {
         this.eventId = eventId;
-    }
-
-    public Long getBuildingtId() {
-        return buildingtId;
-    }
-
-    public void setBuildingtId(Long buildingtId) {
-        this.buildingtId = buildingtId;
     }
 
     public Long getSectortId() {

@@ -1,22 +1,24 @@
 package app.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by kopec on 14.05.2017.
  */
+@Entity
+@Table(name = "RZAD")
+@IdClass(RowPK.class)
 public class Row {
     @Id
-    @SequenceGenerator(name="ROW_SEQ", sequenceName="ROW_SEQ")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="ROW_SEQ")
     @Column(name="ID_SEKTORA")
     private Long building;
     @Id
     @Column(name = "NUMER")
     private int number;
-
-    public Row(int number) {
-        this.number = number;
+    public Row () {}
+    public Row(int number, Long building) {
+        this.number = number; this.building = building;
     }
 
     public Long getBuilding() {
@@ -34,4 +36,16 @@ public class Row {
     public void setNumber(int number) {
         this.number = number;
     }
+}
+class RowPK implements Serializable {
+    protected Long building;
+    protected int number;
+
+    public RowPK() {}
+
+    public RowPK(Long building,int number) {
+        this.building = building;
+        this.number = number;
+    }
+    // equals, hashCode
 }

@@ -23,7 +23,7 @@ public class Reservation  implements Serializable {
 
     @Column(name="ID_KLIENTA")
     private Long clientId;
-
+    public Reservation(){}
 
     public Reservation(String status, Date date, Long clientId) {
         this.status = status;

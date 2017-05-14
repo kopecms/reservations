@@ -82,6 +82,16 @@ public class TestDataGenerator {
         }
 
         System.out.println("Success");
+        List<Event> events = (List) eventRepository.findAll();
+        List<Sector> sectors = (List) sectorRepository.findAll();
+        System.out.println("ceny");
+        for(int i=0; i<number; ++i){
+            float price = randomGenerator.nextFloat()*100;
+            int k = i%events.size();
+            int q = i%sectors.size();
+            priceRepository.save(new Price(price,"PLN",events.get(k).getId(),sectors.get(q).getId()));
+        }
+        System.out.println("Success");
     }
     public void generateBuildings(int number) throws IOException{
         List<String> streets = readFile("streets");
@@ -101,13 +111,13 @@ public class TestDataGenerator {
             buildingRepository.save(new Building("ul. "+name+" "+n,type));
         }
 
-        List<Client> buildings = (List) buildingRepository.findAll();
         types = new ArrayList<String>();
         types.add("KONFERENCYJNA");
         types.add("SCENA");
         types.add("SALA KINOWA");
         types.add("INNE");
 
+        List<Building> buildings = (List) buildingRepository.findAll();
         System.out.println("sale");
         for(int i = 0; i < buildings.size(); ++i){
             Long buildingId = buildings.get(i).getId();
@@ -131,26 +141,23 @@ public class TestDataGenerator {
             index = randomGenerator.nextInt(types.size());
             String type = types.get(index);
             Long buildingId = buildings.get(i/12).getId();
-            int k = i%12;
+            int k = i%6;
             sectorRepository.save(new Sector(type,buildingId,k));
         }
         List<Sector> sectors = (List) sectorRepository.findAll();
 
         System.out.println("rzedy");
         for(int i = 0 ; i < 10*sectors.size(); ++i){
-            rowRepository.save(new Row(i));
+            rowRepository.save(new Row(i,sectors.get(randomGenerator.nextInt(sectors.size())).getId()));
         }
         List<Row> rows = (List) rowRepository.findAll();
 
         System.out.println("miejsca");
-        for(int i = 0; i < sectors.size(); ++i){
-            Long sectorId = sectors.get(i).getId();
-            for(int j= 0; j <rows.size(); ++j){
-                for(int k = 0; k < 10; ++k){
-                    placeRepository.save(new Place(k,sectorId,j));
+            for(int j= 0; j <rows.size()/5; ++j){
+                for(int k = 0; k < 5; ++k){
+                    placeRepository.save(new Place(k,rows.get(j).getBuilding(),rows.get(j).getNumber()));
                 }
             }
-        }
         System.out.println("Success");
     }
     public void generateTimeTables(int number) throws IOException{

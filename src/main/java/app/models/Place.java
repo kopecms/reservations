@@ -27,6 +27,7 @@ public class Place  implements Serializable {
         this.sector = sector;
         this.rowId = rowId;
     }
+    public Place() {}
 
     public Long getSector() {
         return sector;

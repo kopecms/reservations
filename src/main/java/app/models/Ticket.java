@@ -26,7 +26,7 @@ public class Ticket  implements Serializable {
     private Long sector;
     @Column(name = "ID_MIEJSCA")
     private Long place;
-
+    public Ticket (){}
     public Ticket(float price, Long reservation, Long sector, Long place) {
         this.price = price;
         this.reservation = reservation;
