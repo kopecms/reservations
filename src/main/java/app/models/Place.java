@@ -1,9 +1,6 @@
 package app.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -14,18 +11,37 @@ import java.io.Serializable;
 @Table(name = "Miejsce")
 public class Place  implements Serializable {
     @Id
+    @SequenceGenerator(name="PLACE_SEQ", sequenceName="PLACE_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="PLACE_SEQ")
     @Column(name = "ID_MIEJSCA")
     private Long id;
     @Column(name = "NUMER")
     private int number;
-    @Column(name = "SEKTOR")
-    private Sector sector;
-    @Column(name = "BUDYNEK")
-    private Building building;
+    @Column(name = "ID_SEKTORA")
+    private Long sector;
+    @Column(name = "ID_RZEDU")
+    private int rowId;
 
-    public Place(Long id, int number) {
-        this.id = id;
+    public Place(int number, Long sector, int rowId) {
         this.number = number;
+        this.sector = sector;
+        this.rowId = rowId;
+    }
+
+    public Long getSector() {
+        return sector;
+    }
+
+    public void setSector(Long sector) {
+        this.sector = sector;
+    }
+
+    public int getRowId() {
+        return rowId;
+    }
+
+    public void setRowId(int rowId) {
+        this.rowId = rowId;
     }
 
     public Long getId() {

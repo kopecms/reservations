@@ -1,9 +1,6 @@
 package app.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -12,28 +9,22 @@ import java.util.Date;
 @Entity
 @Table(name = "Data i goidzina")
 public class DateAndHour {
-    
-    @Column(name = "DATA ROZPOCZĘCIA")
-    private Date date;
-    @Column(name = "GODZINA ROZPOCZĘCIA")
-    private Date hour;
-    @Column(name = "CZAS TRWANIA")
-    private int time;
     @Id
+    @SequenceGenerator(name="DATE_SEQ", sequenceName="DATE_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="DATE_SEQ")
     @Column(name = "ID_HARMONOGRAMU")
-    private Timetable timetable;
+    private Long timetableId;
+    @Id
+    @Column(name = "DATA")
+    private Date date;
+    @Column(name = "CZAS_TRWANIA")
+    private int time;
 
-    public DateAndHour(Date date, Date hour){
+
+    public DateAndHour(Date date, int time, Long timetableId){
         this.date=date;
-        this.hour=hour;
-    }
-
-    public Date getHour() {
-        return hour;
-    }
-
-    public void setHour(Date hour) {
-        this.hour = hour;
+        this.time = time;
+        this.timetableId = timetableId;
     }
 
     public Date getDate() {
@@ -52,11 +43,11 @@ public class DateAndHour {
         this.time = time;
     }
 
-    public Timetable getTimetable() {
-        return timetable;
+    public Long getTimetable() {
+        return timetableId;
     }
 
-    public void setTimetable(Timetable timetable) {
-        this.timetable = timetable;
+    public void setTimetable(Long timetable) {
+        this.timetableId = timetable;
     }
 }

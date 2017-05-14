@@ -2,10 +2,7 @@ package app.models;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -17,6 +14,8 @@ import java.io.Serializable;
 public class Discount  implements Serializable {
 
     @Id
+    @SequenceGenerator(name="DISCOUNT_SEQ", sequenceName="DISCOUNT_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="DISCOUNT_SEQ")
     @Column(name = "ID_ZNIŻKI")
     private Long id;
     @Column(name = "WARTOŚĆ")

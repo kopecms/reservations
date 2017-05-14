@@ -12,80 +12,73 @@ import java.io.Serializable;
 public class Ticket  implements Serializable {
 
     @Id
+    @SequenceGenerator(name="TICKET_SEQ", sequenceName="TICKET_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="TICKET_SEQ")
     @Column(name = "ID_BILETU")
     private Long id;
-    @Column(name = "CENA")
+    @Column(name = "CENA_PO_ZNIZCE")
     private float price;
-    @Column(name = "Rezerwacja")
-    private Reservation reservation;
-    @Column(name = "Wydarzenie")
-    private Event event;
-    @Column(name = "Sektor")
-    private Sector sector;
-    @Column(name = "Miejsce")
-    private Place place;
-    @Column(name = "Budynek")
-    private Building building;
+    @Column(name = "Znizka_id_znizki")
+    private Long discountId;
+    @Column(name = "ID_REZERWACJI")
+    private Long reservation;
+    @Column(name = "ID_WYDARZENIA")
+    private Long sector;
+    @Column(name = "ID_MIEJSCA")
+    private Long place;
 
-
-    public Ticket(Long id, float price) {
-        this.id = id;
+    public Ticket(float price, Long reservation, Long sector, Long place) {
         this.price = price;
+        this.reservation = reservation;
+        this.sector = sector;
+        this.place = place;
     }
 
     public Long getId() {
-        return this.id;
-    }
-
-    public float getPrice() {
-        return this.price;
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
+    public float getPrice() {
+        return price;
+    }
+
     public void setPrice(float price) {
         this.price = price;
     }
-    public Reservation getReservation() {
+
+    public Long getDiscountId() {
+        return discountId;
+    }
+
+    public void setDiscountId(Long discountId) {
+        this.discountId = discountId;
+    }
+
+    public Long getReservation() {
         return reservation;
     }
 
-    public void setReservation(Reservation reservation) {
+    public void setReservation(Long reservation) {
         this.reservation = reservation;
     }
 
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
-    }
-
-    public Sector getSector() {
+    public Long getSector() {
         return sector;
     }
 
-    public void setSector(Sector sector) {
+    public void setSector(Long sector) {
         this.sector = sector;
     }
 
-    public Place getPlace() {
+    public Long getPlace() {
         return place;
     }
 
-    public void setPlace(Place place) {
+    public void setPlace(Long place) {
         this.place = place;
     }
-
-    public Building getBuilding() {
-        return building;
-    }
-
-    public void setBuilding(Building building) {
-        this.building = building;
-    }
-
 }

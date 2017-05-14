@@ -10,29 +10,33 @@ import java.util.Date;
 @Table(name = "Zniżka do wydarzenia")
 public class DiscountForEvent {
 
-    public DiscountForEvent() {
-    }
 
     @Id
+    @SequenceGenerator(name="BUILDING_SEQ", sequenceName="BUILDING_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="BUILDING_SEQ")
     @Column(name = "Wydarzenie")
-    private Event event;
+    private Long event;
 
     @Column(name = "Zniżka")
-    private Discount discount;
+    private Long discount;
 
-    public Event getEvent() {
+    public DiscountForEvent(Long event, Long discount) {
+        this.event = event;
+        this.discount = discount;
+    }
+    public Long getEvent() {
         return event;
     }
 
-    public void setEvent(Event event) {
+    public void setEvent(Long event) {
         this.event = event;
     }
 
-    public Discount getDiscount() {
+    public Long getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Discount discount) {
+    public void setDiscount(Long discount) {
         this.discount = discount;
     }
 }

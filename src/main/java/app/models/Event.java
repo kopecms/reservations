@@ -11,12 +11,12 @@ import java.io.Serializable;
 @Table(name = "Wydarzenie")
 public class Event  implements Serializable {
     @Id
+    @SequenceGenerator(name="EVENT_SEQ", sequenceName="EVENT_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="EVENT_SEQ")
     @Column(name = "ID_WYDARZENIA")
     private Long id;
-
     @Column(name = "ID_HARMONOGRAMU")
-    private int timetable;
-
+    private Long timetable;
     @Column(name = "NAZWA")
     private String name;
     @Column(name = "ORGANIZATOR")
@@ -26,17 +26,16 @@ public class Event  implements Serializable {
 
     public Event(){};
 
-    public Event(Long id, String name, String organizer, int timetable) {
-        this.id = id;
+    public Event(String name, String organizer, Long timetable) {
         this.name = name;
         this.organizer = organizer;
         this.timetable = timetable;
     }
-    public int getTimetable() {
+    public Long getTimetable() {
         return timetable;
     }
 
-    public void setTimetable(int timetable) {
+    public void setTimetable(Long timetable) {
         this.timetable = timetable;
     }
 

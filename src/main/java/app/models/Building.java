@@ -1,9 +1,6 @@
 package app.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -14,6 +11,8 @@ import java.io.Serializable;
 @Table(name = "BUDYNEK")
 public class Building  implements Serializable {
     @Id
+    @SequenceGenerator(name="BUILDING_SEQ", sequenceName="BUILDING_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="BUILDING_SEQ")
     @Column(name = "ID_BUDYNKU")
     private Long id;
     @Column(name = "ADRES")
@@ -25,7 +24,7 @@ public class Building  implements Serializable {
 
     public Building(){};
 
-    public Building(Long id, String address, String type) {
+    public Building(String address, String type) {
         this.id = id;
         this.address = address;
         this.type = type;

@@ -23,8 +23,9 @@ public class HomeController {
     @Transactional
     public void genereteData(){
         try {
-            testDataGenerator.generateClients(20);
-            testDataGenerator.generateReservation(40);
+            testDataGenerator.generateClients(50);
+            testDataGenerator.generateReservation(50);
+            testDataGenerator.generateTimeTables(40);
         }catch(Exception e){
             System.out.println(e);
         }

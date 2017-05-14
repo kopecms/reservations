@@ -1,9 +1,6 @@
 package app.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -14,13 +11,14 @@ import java.io.Serializable;
 @Table(name ="Harmonogram")
 public class Timetable  implements Serializable {
     @Id
+    @SequenceGenerator(name="TIMETABLE_SEQ", sequenceName="TIMETABLE_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="TIMETABLE_SEQ")
     @Column(name = "ID_HARMONOGRAMU")
     private Long id;
     @Column(name = "TYP")
     private String type;
 
-    public Timetable(Long id, String type) {
-        this.id = id;
+    public Timetable(String type) {
         this.type = type;
     }
 
