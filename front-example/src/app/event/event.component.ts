@@ -17,7 +17,6 @@ export class EventComponent implements OnInit {
   // org: string;
   // repos: Observable<any>;
 
-
   // constructor(public event: EventService, private route: ActivatedRoute) {}
 
   // ngOnInit() {
@@ -36,8 +35,15 @@ export class EventComponent implements OnInit {
       id: ['', Validators.required]
     });
   }
+
+  put(): void {
+   this.event.postReservations();
+
+  }
+
   submitForm(): void {
-    this.event.postReservations(this.eventForm.value);
-    console.log(this.eventForm);
+    // console.log(this.eventForm);
+    this.event.postReservations();
+
   }
 }

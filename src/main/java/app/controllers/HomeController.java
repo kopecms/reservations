@@ -23,13 +23,13 @@ public class HomeController {
     //@Transactional
     public void genereteData(){
         try {
-            testDataGenerator.generateClients(20);
-            testDataGenerator.generateReservation(20);
+            testDataGenerator.generateClients(100);
+            //testDataGenerator.generateReservation(20);
          //   testDataGenerator.generateBuildings(5);
-            testDataGenerator.generateTimeTables(5);
+          //  testDataGenerator.generateTimeTables(5);
 
-            testDataGenerator.generateEvents(20);
-            testDataGenerator.generateTickets(100);
+            //testDataGenerator.generateEvents(20);
+           // testDataGenerator.generateTickets(100);
         }catch(Exception e){
             System.out.println(e);
         }
