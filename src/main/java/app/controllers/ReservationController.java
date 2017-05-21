@@ -13,6 +13,8 @@ import java.util.*;
 /**
  * Created by kopec on 29.04.2017.
  */
+@CrossOrigin(origins = "http://localhost:3000")
+
 @RestController
 @RequestMapping("/api/reservations")
 public class ReservationController{

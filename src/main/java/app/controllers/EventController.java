@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created by kopec on 29.04.2017.
  */
+@CrossOrigin(origins = "http://localhost:3000")
+
 @RestController
 @RequestMapping("/api/events")
 public class EventController {

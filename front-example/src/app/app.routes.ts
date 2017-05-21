@@ -6,6 +6,7 @@ import { RepoBrowserComponent } from './github/repo-browser/repo-browser.compone
 import { RepoListComponent } from './github/repo-list/repo-list.component';
 import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { ContactComponent } from './contact/contact.component';
+import { EventComponent } from './event/event.component'
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +21,9 @@ export const rootRouterConfig: Routes = [
           { path: ':repo', component: RepoDetailComponent }
         ]
       }]
+  },
+  {
+    path: 'event', component: EventComponent 
   },
   { path: 'contact', component: ContactComponent }
 ];

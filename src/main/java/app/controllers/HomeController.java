@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 /**
  * Created by kopec on 13.05.2017.
  */
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class HomeController {
