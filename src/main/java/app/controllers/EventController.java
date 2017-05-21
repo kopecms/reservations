@@ -36,33 +36,40 @@ public class EventController {
     @Autowired
     private PriceRepository priceRepository;
 
+    @Autowired
+    private PlaceRepository placeRepository;
+
     @RequestMapping(value="", method=RequestMethod.GET)
-    Page<Event> listEvents(Pageable pageable){
+    public Page<Event> listEvents(Pageable pageable){
         Page<Event> events = eventService.listAllByPage(pageable);
         return events;
     }
 
-    @RequestMapping(value="create", method=RequestMethod.POST)
+    @RequestMapping(value="/create", method=RequestMethod.POST)
     void createEvent(@RequestBody Event input){
         this.eventRepository.save(input);
     }
 
-    @RequestMapping(value="timetables",method = RequestMethod.GET)
+    @RequestMapping(value="/timetables",method = RequestMethod.GET)
     public Iterable<Timetable> getTimetables() {
         return timetableRepository.findAll();
     }
 
-    @RequestMapping(value="sectors",method = RequestMethod.GET)
+    @RequestMapping(value="/sectors",method = RequestMethod.GET)
     public Iterable<Sector> getEvents() {
         return sectorRepository.findAll();
     }
 
-    @RequestMapping(value="price", method = RequestMethod.POST)
-    void createPrice(@RequestBody Price input){
+    @RequestMapping(value="/price", method = RequestMethod.POST)
+    public void createPrice(@RequestBody Price input){
         this.priceRepository.save(input);
     }
 
-    //@RequestMapping(value="sectors",method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/places", method = RequestMethod.GET)
+    public Iterable<Place> getFreePlaces(@PathVariable("id") Long id) {
+        return eventRepository.findAllFreePlaces(id);
+    }
+
 /*
     todo
     znizki

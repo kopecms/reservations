@@ -1,6 +1,7 @@
 package app.services;
 
 import app.models.Event;
+import app.models.Place;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -9,4 +10,5 @@ import org.springframework.data.domain.Pageable;
  */
 public interface EventService {
     Page<Event> listAllByPage(Pageable pageable);
+    Iterable<Place> listFreePlaces(Long id);
 }
