@@ -36,14 +36,18 @@ export class EventComponent implements OnInit {
     });
   }
 
-  put(): void {
-   this.event.postReservations();
+  put(): Observable<any> {
+   return this.event.postReservations();
 
   }
 
   submitForm(): void {
     // console.log(this.eventForm);
-    this.event.postReservations();
+    this.put().subscribe(
+      Response => {
+        console.log(Response);
+      }
+    );
 
   }
 }

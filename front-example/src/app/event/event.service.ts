@@ -13,22 +13,22 @@ export class EventService {
     return this.makeRequest(`reservations`);
   }
 
-  postReservations(): Observable<any> {
+  postReservations() {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     // let options = new RequestOptions({ headers: headers });
     let url = `http://localhost:8080/api/events/create/`
-    console.log("chuj");
-    var test = {name: "Albert", organizer: "Hawrylak", timetable: 5004};
+    var test = {name: "Albert", organizer: "Hawrylak", timetable: 5204};
     console.log(JSON.stringify(test));
     return this.http
-      .post(url, test, {headers: headers}).subscribe();
+      .post(url, JSON.stringify(test), {headers: headers})
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server Error'));
       // .map(res => res.json())
       // .catch(this.handleError);
   }
 
   private makeRequest(path: string) {
     let url = `http://localhost:8080/api/reservations`;
-    console.log("CHUJ");
     return this.http.get(url)
       .map((res) => res.json());
   }
