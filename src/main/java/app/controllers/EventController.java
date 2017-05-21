@@ -1,14 +1,17 @@
 package app.controllers;
 
-import app.models.Building;
-import app.models.Event;
-import app.repositories.BuildingRepository;
-import app.repositories.EventRepository;
-import app.repositories.TimetableRepository;
+import app.models.*;
+import app.repositories.*;
+import app.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.Time;
 
 /**
  * Created by kopec on 29.04.2017.
@@ -19,30 +22,49 @@ public class EventController {
     private Building building;
 
     @Autowired
+    private EventService eventService;
+
+    @Autowired
     private EventRepository eventRepository;
 
     @Autowired
     private TimetableRepository timetableRepository;
 
     @Autowired
-    private BuildingRepository buildingRepository;
+    private SectorRepository sectorRepository;
 
-    @RequestMapping(value="/all", method=RequestMethod.GET)
-    public Iterable<Event> getAllEvent() {
-        return eventRepository.findAll();
+    @Autowired
+    private PriceRepository priceRepository;
+
+    @RequestMapping(value="", method=RequestMethod.GET)
+    Page<Event> listEvents(Pageable pageable){
+        Page<Event> events = eventService.listAllByPage(pageable);
+        return events;
     }
 
-
-    @RequestMapping(value = "/test", method=RequestMethod.GET)
-    public Event getAllBuildings() {
-        return eventRepository.findOne(1l);
+    @RequestMapping(value="create", method=RequestMethod.POST)
+    void createEvent(@RequestBody Event input){
+        this.eventRepository.save(input);
     }
 
-    @RequestMapping(value = "/new", method=RequestMethod.GET)
-    public String newEvent(Model model) {
-        model.addAttribute("event", new Event());
-        model.addAttribute("building", buildingRepository.findAll());
-        return "bookings/create";
+    @RequestMapping(value="timetables",method = RequestMethod.GET)
+    public Iterable<Timetable> getTimetables() {
+        return timetableRepository.findAll();
     }
 
+    @RequestMapping(value="sectors",method = RequestMethod.GET)
+    public Iterable<Sector> getEvents() {
+        return sectorRepository.findAll();
+    }
+
+    @RequestMapping(value="price", method = RequestMethod.POST)
+    void createPrice(@RequestBody Price input){
+        this.priceRepository.save(input);
+    }
+
+    //@RequestMapping(value="sectors",method = RequestMethod.GET)
+/*
+    todo
+    znizki
+*/
 }
