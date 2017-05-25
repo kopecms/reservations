@@ -15,10 +15,11 @@ Oracle JDBC Driver shenanigans
 Angular2
 
 	npm install -g @angular/cli
+	npm install
 	ng new projectFolder creates a new application
 	ng init from projectFolder if it is an existing application
 	npm start 
-	localhost:4200
+	localhost:3000
 	deployment :ng b -prod 
 	http://tattoocoder.com/angular-cli-using-the-environment-option/
 	
