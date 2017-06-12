@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Headers, RequestOptions, Http, URLSearchParams, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {EventComponent} from './event.component';
+import {AvailableComponent} from './available.component';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class EventService {
+export class AvailableService {
   constructor(private http: Http) {}
 
   getReservations(org: string) {

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Headers, RequestOptions, Http, URLSearchParams, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {EventComponent} from './event.component';
+import { ReservationComponent } from './reservation.component';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class EventService {
+export class ReservationService {
   constructor(private http: Http) {}
 
   getReservations(org: string) {
@@ -17,10 +17,7 @@ export class EventService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let url = `http://localhost:8080/api/events/create/`
     postObject.timetable = parseInt(postObject.timetable);
-    postObject.room = parseInt(postObject.room);
-    postObject.numberOfTickets = parseInt(postObject.numberOfSeats);
-    postObject.numberOfSeats = parseInt(postObject.numberOfSeats);
-    postObject.ticketPrice = parseFloat(postObject.ticketPrice);
+    postObject.seat = parseInt(postObject.seat);
     return this.http
       .post(url, JSON.stringify(postObject), {headers: headers})
       .map((res:Response) => res.json());

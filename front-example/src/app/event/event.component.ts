@@ -14,40 +14,28 @@ export class EventComponent implements OnInit {
   eventForm: FormGroup;
   constructor(private formBuilder: FormBuilder, public event: EventService) {}
 
-  // org: string;
-  // repos: Observable<any>;
-
-  // constructor(public event: EventService, private route: ActivatedRoute) {}
-
-  // ngOnInit() {
-  //   this.route.params.subscribe(params => {
-  //     // this.org = params['org'];
-  //     // if (this.org) {
-  //       this.repos = this.event.getReservations(this.org);
-  //     // }
-  //   });
-  // }
-  
   ngOnInit() {
     this.eventForm = this.formBuilder.group({
       name: ['', Validators.required],
       organizer: ['', [Validators.required, CustomValidators.validateEmail]],
-      id: ['', Validators.required]
+      timetable: ['', Validators.required],
+      numberOfSeats: ['', Validators.required],
+      ticketPrice: ['', Validators.required],
+      address: ['', Validators.required],
+      room: ['', Validators.required],
+      description: ['', Validators.required]
     });
   }
 
-  put(): Observable<any> {
-   return this.event.postReservations();
-
+  post(postObject): Observable<any> {
+    return this.event.postReservations(postObject);
   }
 
   submitForm(): void {
-    // console.log(this.eventForm);
-    this.put().subscribe(
+    this.post(this.eventForm.value).subscribe(
       Response => {
         console.log(Response);
       }
     );
-
   }
 }

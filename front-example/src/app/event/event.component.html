@@ -11,27 +11,32 @@
       <input type="organizer" formControlName="organizer" class="sd-form-control" placeholder="Wprowadź nazwę organizatora.">
     </label>
     <label>
+      Ilość miejsc:
+      <input type="numberOfSeats" formControlName="numberOfSeats" class="sd-form-control" placeholder="Wprowadź ilość miejsc.">
+    </label>
+    <label>
+      Cena biletu:
+      <input type="ticketPrice" formControlName="ticketPrice" class="sd-form-control" placeholder="Wprowadź cenę biletu.">
+    </label>
+    <label>
+      Adres:
+      <input type="address" formControlName="address" class="sd-form-control" placeholder="Wprowadź adres.">
+    </label>
+    <label>
+      Sala:
+      <input type="room" formControlName="room" class="sd-form-control" placeholder="Wprowadź numer sali.">
+    </label>
+    <label>
+      Opis wydarzenia:
+      <input type="description" formControlName="description" class="sd-form-control" placeholder="Wprowadz opis wydarzenia.">
+    </label>
+    <label>
       ID Harmonogramu:
-      <input type="id" formControlName="id" class="sd-form-control" placeHolder="Wprowadź ID harmonogramu.">
+      <input type="timetable" formControlName="timetable" class="sd-form-control" placeHolder="Wprowadź ID harmonogramu.">
     </label>
     <div class="form-submit">
       <button type="submit">Wprowadź</button>
     </div>
   </div>
 </form>
-
-
-<div class="form-value">
-  Form value:
-  <pre>
-    {{eventForm.value | json}}
-  </pre>
-  <p>
-    Status: {{eventForm.status}}
-  </p>
-  <p>
-    Valid: {{eventForm.valid}}
-  </p>
-  <p>Submit then open console to see full form.</p>
-</div>
 

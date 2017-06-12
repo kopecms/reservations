@@ -1,0 +1,28 @@
+<h2>Zarezerwuj bilet</h2>
+
+<form (ngSubmit)="submitForm()" [formGroup]="eventForm" novalidate>
+  <div class="form-content">
+    <label>
+      ID wydarzenia:
+      <input type="timetable" formControlName="timetable" class="sd-form-control" placeholder="Wprowadź ID wydarzenia.">
+    </label>
+    <label>
+      E-mail:
+      <input type="name" formControlName="name" class="sd-form-control" placeholder="Wprowadź swój e-mail.">
+    </label>
+    <label>
+      Wprowadź rodzaj zniżki:
+      <input type="discount" formControlName="discount" class="sd-form-control" placeholder="Wprowadź rodzaj zniżki.">
+    </label>
+    <label>
+      Wprowadź numer miejsca:
+      <input type="seat" formControlName="seat" class="sd-form-control" placeholder="Wprowadź numer miejsca.">
+    </label>
+    <div class="form-submit">
+      <button type="submit">Wprowadź</button>
+    </div>
+  </div>
+</form>
+
+<h3>Rodzaje zniżek</h3>
+<p>pewne rodzaje < tu wpisz rodzaje</p>

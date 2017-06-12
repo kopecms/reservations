@@ -5,10 +5,16 @@
 }
 .form-content .sd-form-control {
   display: block;
+  margin-bottom: 100px;
+  width: 10%;
+  padding: 100px;
+}
+.form-content .sd-form-control {
+  display: block;
   margin-bottom: 10px;
   width: 100%;
   padding: 10px;
 }
 .form-content textarea.sd-form-control {
-  max-width: 100%;
+  max-width: 105%;
 }
